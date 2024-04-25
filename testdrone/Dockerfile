@@ -32,6 +32,6 @@ COPY main.py /app
 
 # Копируем файл .env внутрь контейнера
 # COPY .env authorized_key.json /app/
-CMD ["python", "main"]
+CMD ["python3", "main.py"]
 # CMD ["gunicorn", "wsgi:app", "-c", "wsgi_config.py"]
 # gunicorn wsgi:app -c wsgi_config.py
