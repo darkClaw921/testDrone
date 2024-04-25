@@ -31,6 +31,7 @@ steps:
       - ls
       - cd testdrone  
       - python3 main.py
+      
   # - name: git-pull-and-restart-container
   #   image: docker:stable
   #   commands:
