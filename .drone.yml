@@ -18,6 +18,8 @@ steps:
       - pwd
       - cd testDrone/testdrone
       - git pull  # Получение изменений из pull request
+      - ls
+      - pwd
       - python3 testdrone/main.py
       # - docker-compose down  # Остановка контейнера
       # - docker-compose up -d --build  # Запуск контейнера с пересборкой
