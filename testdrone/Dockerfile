@@ -16,7 +16,7 @@ WORKDIR /app
 # COPY wg0.conf /etc/wireguard/
 
 # Копируем файлы helper.py, chat.py, workFlask.py и workBinance.py в директорию /app контейнера
-COPY main.py /app/
+COPY main.py /app
 
 # Копируем файл requirements.txt в директорию /app контейнера
 # COPY requirements.txt .env /app/
