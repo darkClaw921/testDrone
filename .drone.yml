@@ -9,6 +9,7 @@ steps:
     commands:
       # - cd /root/testDrone/testdrone
       - git clone https://github.com/darkClaw921/testDrone.git
+      - ls
   
   - name: build-and-restart-myservice-container
     image: docker/compose:1.29.2
