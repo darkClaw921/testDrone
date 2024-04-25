@@ -1,0 +1,12 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: git-pull-and-restart-container
+    image: docker:stable
+    commands:
+      - cd /root/servis
+      - git pull origin $DRONE_PULL_REQUEST_BRANCH  # Получение изменений из pull request
+      - docker-compose down  # Остановка контейнера
+      - docker-compose up -d --build  # Запуск контейнера с пересборкой

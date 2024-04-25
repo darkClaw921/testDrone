@@ -1,0 +1,37 @@
+# Используем базовый образ debian
+FROM python:3.10
+
+ENV TZ=Europe/Moscow
+RUN apt-get update && apt-get install -y nano htop vim default-libmysqlclient-dev build-essential python3-mysqldb
+RUN apt-get install -y wireguard iproute2 openresolv
+
+# Устанавливаем пакеты системы 
+# RUN apt-get update && apt-get install -y \
+#     python3.10 \
+#     python3-pip \
+#     && rm -rf /var/lib/apt/lists/*
+
+# Устанавливаем рабочую директорию внутри контейнера
+WORKDIR /app
+# COPY wg0.conf /etc/wireguard/
+
+# Копируем файлы helper.py, chat.py, workFlask.py и workBinance.py в директорию /app контейнера
+COPY main.py /app/
+
+# Копируем файл requirements.txt в директорию /app контейнера
+# COPY requirements.txt .env /app/
+
+# Устанавливаем зависимости из requirements.txt
+# RUN pip3 install --no-cache-dir -r requirements.txt
+
+# Открываем порт 5000 (или любой другой необходимый порт)
+# EXPOSE 5001
+
+
+
+
+# Копируем файл .env внутрь контейнера
+# COPY .env authorized_key.json /app/
+CMD ["python", "main"]
+# CMD ["gunicorn", "wsgi:app", "-c", "wsgi_config.py"]
+# gunicorn wsgi:app -c wsgi_config.py
