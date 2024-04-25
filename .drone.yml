@@ -9,13 +9,15 @@ steps:
     commands:
       # - cd /root/testDrone/testdrone
       - git clone https://github.com/darkClaw921/testDrone.git
-      - cd testDrone
-      - ls
+      
 
   
   - name: build-and-restart-myservice-container
     image: docker/compose:1.29.2
     commands:
+      - cd testDrone
+      - ls
+      - cd testdrone
       - ls
       - docker-compose -f docker-compose.yml build myservice  # Сборка образа для нужного сервиса
       - docker-compose -f docker-compose.yml up -d myservice  # Запуск контейнера для нужного сервиса
