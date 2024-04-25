@@ -16,5 +16,5 @@ steps:
     commands:
       - cd /root/testDrone/testdrone
       - git pull  # Получение изменений из pull request
-      - docker-compose down  # Остановка контейнера
-      - docker-compose up -d --build  # Запуск контейнера с пересборкой
+      # - docker-compose down  # Остановка контейнера
+      # - docker-compose up -d --build  # Запуск контейнера с пересборкой
