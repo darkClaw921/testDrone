@@ -4,16 +4,18 @@ name: default
 
 steps:
 
-  # - name: clone-repository
-  #   image: alpine/git
-  #   commands:
-  #     - cd /root/testDrone/testdrone
-  #     - git clone https://github.com/darkClaw921/testDrone.git /root/testDrone/testdrone
+  - name: clone-repository
+    image: alpine/git
+    commands:
+      # - cd /root/testDrone/testdrone
+      - git clone https://github.com/darkClaw921/testDrone.git /root/testDrone/testdrone
 
 
   - name: git-pull-and-restart-container
     image: docker:stable
     commands:
+      - ls
+      - pwd
       - cd /root/testDrone/testdrone
       - git pull  # Получение изменений из pull request
       # - docker-compose down  # Остановка контейнера
