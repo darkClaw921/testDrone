@@ -12,16 +12,25 @@ steps:
       
 
   
-  - name: build-and-restart-myservice-container
-    image: docker/compose:1.29.2
+  # - name: build-and-restart-myservice-container
+  #   image: docker/compose:1.29.2
+  #   commands:
+  #     - cd testDrone
+  #     - ls
+  #     # - cd testdrone
+  #     # - ls
+  #     - docker-compose -f docker-compose.yml build myservice  # Сборка образа для нужного сервиса
+  #     - docker-compose -f docker-compose.yml up -d myservice  # Запуск контейнера для нужного сервиса
+
+  
+  - name: test
+    image: python:3.12
     commands:
+      # - pip install -r requirements.txt
       - cd testDrone
       - ls
-      # - cd testdrone
-      # - ls
-      - docker-compose -f docker-compose.yml build myservice  # Сборка образа для нужного сервиса
-      - docker-compose -f docker-compose.yml up -d myservice  # Запуск контейнера для нужного сервиса
-
+      - cd testdrone  
+      - python3 main.py
   # - name: git-pull-and-restart-container
   #   image: docker:stable
   #   commands:
