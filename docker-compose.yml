@@ -11,7 +11,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
     environment:
-      - DRONE_OPEN=true
+      # - DRONE_OPEN=true
       - DRONE_GITHUB=true
       - DRONE_AGENTS_ENABLED=true
       - DRONE_GITHUB_SERVER=https://github.com
@@ -26,8 +26,8 @@ services:
     restart: always
     depends_on:
       - drone-server
-    # ports:
-      # - "3000:3000"
+    ports:
+      - "3000:3000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
