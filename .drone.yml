@@ -9,17 +9,22 @@ steps:
     commands:
       # - cd /root/testDrone/testdrone
       - git clone https://github.com/darkClaw921/testDrone.git
-
-
-  - name: git-pull-and-restart-container
-    image: docker:stable
+  
+  - name: build-and-restart-myservice-container
+    image: docker/compose:1.29.2
     commands:
-      - ls
-      - pwd
-      - cd testDrone/testdrone
-      # - git pull  # Получение изменений из pull request
-      - ls
-      - pwd
-      - python3 testdrone/main.py
+      - docker-compose -f docker-compose.yml build myservice  # Сборка образа для нужного сервиса
+      - docker-compose -f docker-compose.yml up -d myservice  # Запуск контейнера для нужного сервиса
+
+  # - name: git-pull-and-restart-container
+  #   image: docker:stable
+  #   commands:
+  #     - ls
+  #     - pwd
+  #     - cd testDrone/testdrone
+  #     # - git pull  # Получение изменений из pull request
+  #     - ls
+  #     - pwd
+  #     - python3 testdrone/main.py
       # - docker-compose down  # Остановка контейнера
       # - docker-compose up -d --build  # Запуск контейнера с пересборкой

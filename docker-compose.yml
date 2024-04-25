@@ -47,6 +47,12 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
     restart: always
-
+  myservice:
+    build:
+      context: ./testdrone
+    ports:
+      - "5001:5001"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
 volumes:
   portainer_data:
