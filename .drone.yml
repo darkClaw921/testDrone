@@ -17,7 +17,7 @@ steps:
       - ls
       - pwd
       - cd testDrone/testdrone
-      - git pull  # Получение изменений из pull request
+      # - git pull  # Получение изменений из pull request
       - ls
       - pwd
       - python3 testdrone/main.py
