@@ -16,7 +16,7 @@ steps:
     commands:
       - ls
       - pwd
-      # - cd /root/testDrone/testdrone
+      - cd testDrone/testdrone
       - git pull  # Получение изменений из pull request
       - python3 testdrone/main.py
       # - docker-compose down  # Остановка контейнера
