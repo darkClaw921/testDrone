@@ -7,6 +7,6 @@ steps:
     image: docker:stable
     commands:
       - cd /root/testDrone/testdrone
-      - git pull origin $DRONE_PULL_REQUEST_BRANCH  # Получение изменений из pull request
+      - git pull  # Получение изменений из pull request
       - docker-compose down  # Остановка контейнера
       - docker-compose up -d --build  # Запуск контейнера с пересборкой
