@@ -11,9 +11,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
     environment:
-      - DRONE_SERVER_HOST={DRONE_SERVER_HOST}
+      - DRONE_SERVER_HOST=${DRONE_SERVER_HOST}
       - DRONE_SERVER_PROTO=http
-      - DRONE_RPC_SECRET={DRONE_RPC_SECRET}
+      - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
 
   drone-agent:
     image: drone/agent:latest
@@ -25,8 +25,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - DRONE_RPC_PROTO=http
-      - DRONE_RPC_HOST={DRONE_SERVER_HOST}
-      - DRONE_RPC_SECRET={DRONE_RPC_SECRET}
+      - DRONE_RPC_HOST=${DRONE_SERVER_HOST}
+      - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
 
   portainer:
     image: portainer/portainer-ce
