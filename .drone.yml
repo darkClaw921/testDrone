@@ -4,11 +4,11 @@ name: default
 
 steps:
 
-  - name: clone-repository
-    image: alpine/git
-    commands:
-      - cd /root/testDrone/testdrone
-      - git clone https://github.com/darkClaw921/testDrone.git /root/testDrone/testdrone
+  # - name: clone-repository
+  #   image: alpine/git
+  #   commands:
+  #     - cd /root/testDrone/testdrone
+  #     - git clone https://github.com/darkClaw921/testDrone.git /root/testDrone/testdrone
 
 
   - name: git-pull-and-restart-container
