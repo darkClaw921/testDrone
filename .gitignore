@@ -17,7 +17,7 @@ backTest/
 work_dir/
 *.mp3
 *.csv
-*.sh
+# *.sh
 testDocker/
 # *.txt
 session_name.session
