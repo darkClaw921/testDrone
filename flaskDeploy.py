@@ -18,6 +18,9 @@ def webhook():
             pwd = os.getcwd()
             path=pwd+cwd
             print(path)
+            
+            #NOTE
+            #chmod +x deploy.sh #для прав на исполнение
             subprocess.Popen([f'{path}/deploy.sh'], cwd=pwd+cwd)
 
     return jsonify({'message': 'Webhook received'}), 200
