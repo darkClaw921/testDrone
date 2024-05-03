@@ -52,6 +52,8 @@ steps:
       - poetry install
       # - poetry run python3 main.py
       - poetry list
+      - echo $DRONE_RPC_SECRET
+      - echo $DEPLOY_URL
       # - python3 main.py
 
   # - name: send-webhook
