@@ -5,7 +5,7 @@ REPO_URL="https://github.com/darkClaw921/testDrone.git"
 APP_NAME="your_app"
 CONTAINER_NAME="your_container"
 BRANCH="master" # Ветка, которая будет использоваться
-PORT=8080 # Порт, на котором будет работать приложение
+PORT=3005 # Порт, на котором будет работать приложение
 
 # Клонирование репозитория
 git pull -b $BRANCH $REPO_URL
