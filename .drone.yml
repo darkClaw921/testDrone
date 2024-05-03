@@ -53,6 +53,19 @@ steps:
       - poetry list
       # - python3 main.py
 
+  - name: send-webhook
+    image: plugins/http
+    settings:
+      method: POST
+      url: $DEPLOY_URL/webhook2  # Замените на фактический адрес вашего Flask-приложения
+    depends_on:
+      - clone-repository   
+      - test
+
+
+
+
+
   # - name: git-pull-and-restart-container
   #   image: docker:stable
   #   commands:

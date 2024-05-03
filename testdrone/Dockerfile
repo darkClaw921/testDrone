@@ -26,7 +26,7 @@ COPY main.py /app
 RUN pip3 install poetry
 RUN pip3 install --upgrade setuptools
 RUN poetry install
-
+RUN pip3 install flask
 # Открываем порт 5000 (или любой другой необходимый порт)
 # EXPOSE 5001
 
@@ -35,7 +35,7 @@ RUN poetry install
 
 # Копируем файл .env внутрь контейнера
 # COPY .env authorized_key.json /app/
-# CMD ["python3", "main.py"]
-CMD ["poetry", "run", "python3", "main.py"]
+CMD ["python3", "main.py"]
+# CMD ["poetry", "run", "python3", "main.py"]
 # CMD ["gunicorn", "wsgi:app", "-c", "wsgi_config.py"]
 # gunicorn wsgi:app -c wsgi_config.py
