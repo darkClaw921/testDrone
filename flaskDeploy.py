@@ -14,10 +14,11 @@ def webhook():
         # Проверяем, что событие - push в ветку master
         if ref == 'refs/heads/master':
             # Запускаем скрипт для обработки события
-            cwd = '/testdrone/'  # Укажите путь к вашей папке
+            cwd = '/testdrone'  # Укажите путь к вашей папке
             pwd = os.getcwd()
-            print(pwd)
-            subprocess.Popen([f'{pwd}/deploy.sh'], cwd=pwd+cwd)
+            path=pwd+cwd
+            print(path)
+            subprocess.Popen([f'{path}/deploy.sh'], cwd=pwd+cwd)
 
     return jsonify({'message': 'Webhook received'}), 200
 
