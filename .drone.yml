@@ -24,6 +24,8 @@ steps:
 
   - name: build_and_run_container
     image: docker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  # Передача сокета Docker в контейнер
     commands:
       - cd testDrone
       - docker build -t my_image2 .
