@@ -17,7 +17,7 @@ def webhook():
             cwd = '/testdrone/'  # Укажите путь к вашей папке
             pwd = os.getcwd()
             print(pwd)
-            subprocess.Popen(['deploy.sh'], cwd=pwd+cwd)
+            subprocess.Popen([f'{pwd}/deploy.sh'], cwd=pwd+cwd)
 
     return jsonify({'message': 'Webhook received'}), 200
 
