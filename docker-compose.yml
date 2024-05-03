@@ -20,6 +20,7 @@ services:
       - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
       - DRONE_GITHUB_CLIENT_ID=${DRONE_GITHUB_CLIENT_ID}
       - DRONE_GITHUB_CLIENT_SECRET=${DRONE_GITHUB_CLIENT_SECRET}
+      - DEPLOY_URL=${DEPLOY_URL}
   drone-agent:
     image: drone/agent:latest
     command: agent

@@ -7,7 +7,7 @@ name: default
 #   - name: docker_socket
 #     host:
 #       path: /var/run/docker.sock
-
+#dotenv -f .env drone exec
 steps:
 
   
@@ -65,7 +65,7 @@ steps:
 
   - name: send_post_request
     image: curlimages/curl:latest
-    commands:
+    commands: 
       - curl -X POST -d "param1=value1&param2=value2" $DEPLOY_URL/webhook
     depends_on:
       - clone-repository   
