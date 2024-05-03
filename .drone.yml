@@ -2,8 +2,15 @@ kind: pipeline
 type: docker
 name: default
 
+
+volumes:
+  - name: docker_socket
+    host:
+      path: /var/run/docker.sock
+
 steps:
 
+  
   - name: clone-repository
     image: alpine/git
     commands:
@@ -24,8 +31,9 @@ steps:
 
   - name: build_and_run_container
     image: docker
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock  # Передача сокета Docker в контейнер
+    volumes_from:
+      - source: docker_socket
+        target: /var/run/docker.sock
     commands:
       - cd testDrone
       - docker build -t my_image2 .
