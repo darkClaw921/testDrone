@@ -1,9 +1,10 @@
 # Используем базовый образ debian
-FROM python:3.10
+FROM python:3.12
 
 ENV TZ=Europe/Moscow
 RUN apt-get update && apt-get install -y nano htop vim default-libmysqlclient-dev build-essential python3-mysqldb
 RUN apt-get install -y wireguard iproute2 openresolv
+
 
 # Устанавливаем пакеты системы 
 # RUN apt-get update && apt-get install -y \
@@ -22,7 +23,9 @@ COPY main.py /app
 # COPY requirements.txt .env /app/
 
 # Устанавливаем зависимости из requirements.txt
-# RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip3 install poetry
+RUN pip3 install --upgrade setuptools
+RUN poetry install
 
 # Открываем порт 5000 (или любой другой необходимый порт)
 # EXPOSE 5001
@@ -32,6 +35,7 @@ COPY main.py /app
 
 # Копируем файл .env внутрь контейнера
 # COPY .env authorized_key.json /app/
-CMD ["python3", "main.py"]
+# CMD ["python3", "main.py"]
+CMD ["poetry", "run", "python3", "main.py"]
 # CMD ["gunicorn", "wsgi:app", "-c", "wsgi_config.py"]
 # gunicorn wsgi:app -c wsgi_config.py

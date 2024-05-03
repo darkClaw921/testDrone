@@ -46,7 +46,11 @@ steps:
       - cd testDrone
       - ls
       - cd testdrone  
-      - python3 main.py
+      - pip3 install poetry
+      - pip3 install --upgrade setuptools
+      - poetry install
+      - poetry run python3 main.py
+      # - python3 main.py
 
   # - name: git-pull-and-restart-container
   #   image: docker:stable
