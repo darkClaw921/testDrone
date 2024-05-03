@@ -63,7 +63,14 @@ steps:
       - clone-repository   
       - test
 
-
+  - name: send-webhook
+    image: alpine
+    commands:
+      - apk add --no-cache curl
+      - curl -X POST -d "payload={\"key\": \"value\"}" $DEPLOY_URL/webhook
+    depends_on:
+      - build
+      - test
 
 
 
