@@ -8,7 +8,8 @@ BRANCH="master" # Ветка, которая будет использовать
 PORT=3005 # Порт, на котором будет работать приложение
 
 # Клонирование репозитория
-git pull -b $BRANCH $REPO_URL
+# git pull $BRANCH $REPO_URL
+git pull
 # cd your_repository
 docker stop $CONTAINER_NAME || true
 docker rm -f $CONTAINER_NAME || true
