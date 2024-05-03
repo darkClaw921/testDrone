@@ -22,16 +22,22 @@ steps:
   #     - docker-compose -f docker-compose.yml build myservice  # Сборка образа для нужного сервиса
   #     - docker-compose -f docker-compose.yml up -d myservice  # Запуск контейнера для нужного сервиса
 
-  
-  - name: test
-    image: python:3.12
+  - name: build_and_run_container
+    image: docker
     commands:
-      # - pip install -r requirements.txt
       - cd testDrone
-      - ls
-      - cd testdrone  
-      - python3 main.py
-      
+      - docker build -t my_image2 .
+      - docker run -d my_image2
+  
+  # - name: test
+  #   image: python:3.12
+  #   commands:
+  #     # - pip install -r requirements.txt
+  #     - cd testDrone
+  #     - ls
+  #     - cd testdrone  
+  #     - python3 main.py
+
   # - name: git-pull-and-restart-container
   #   image: docker:stable
   #   commands:
