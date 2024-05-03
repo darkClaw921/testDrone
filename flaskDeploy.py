@@ -10,9 +10,13 @@ def webhook():
     if request.headers.get('X-GitHub-Event') == 'push':
         payload = request.json
         ref = payload['ref']
+        headCommit = payload['head_commit']
+        modified = headCommit['modified']
+
 
         # Проверяем, что событие - push в ветку master
-        if ref == 'refs/heads/master':
+        if ref == 'refs/heads/master' and "testdrone/main.py" in modified:
+        
             # Запускаем скрипт для обработки события
             cwd = '/testdrone'  # Укажите путь к вашей папке
             pwd = os.getcwd()
