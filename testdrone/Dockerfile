@@ -25,7 +25,7 @@ COPY main.py /app
 # Устанавливаем зависимости из requirements.txt
 RUN pip3 install poetry
 RUN pip3 install --upgrade setuptools
-RUN poetry install
+# RUN poetry install
 RUN pip3 install flask
 # Открываем порт 5000 (или любой другой необходимый порт)
 # EXPOSE 5001
