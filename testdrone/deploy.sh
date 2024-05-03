@@ -10,13 +10,15 @@ PORT=3005 # Порт, на котором будет работать прило
 # Клонирование репозитория
 git pull -b $BRANCH $REPO_URL
 # cd your_repository
+docker stop $CONTAINER_NAME || true
+docker rm -f $CONTAINER_NAME || true
 
+docker rmi $APP_NAME:latest || true
 # Сборка Docker-контейнера
 docker build -t $APP_NAME .
 
 # Остановка и удаление старого контейнера (если он существует)
-docker stop $CONTAINER_NAME || true
-docker rm $CONTAINER_NAME || true
+
 
 # Запуск нового контейнера
 docker run -d -p $PORT:$PORT --name $CONTAINER_NAME $APP_NAME
