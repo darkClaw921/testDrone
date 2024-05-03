@@ -14,7 +14,7 @@ def webhook():
         # Проверяем, что событие - push в ветку master
         if ref == 'refs/heads/master':
             # Запускаем скрипт для обработки события
-            cwd = '/testdrone'  # Укажите путь к вашей папке
+            cwd = 'testdrone/'  # Укажите путь к вашей папке
 
             subprocess.Popen(['deploy.sh'], cwd=cwd)
 
