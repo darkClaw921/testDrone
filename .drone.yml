@@ -44,8 +44,8 @@ steps:
     commands:
       # - pip install -r requirements.txt
       - ls
-      - cd testDrone
-      - ls
+      # - cd testDrone
+      # - ls
       - cd testdrone  
       - pip3 install poetry
       - pip3 install --upgrade setuptools
